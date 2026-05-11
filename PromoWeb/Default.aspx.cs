@@ -25,7 +25,8 @@ namespace PromoWeb
             if (valido)
                 Response.Redirect("SeleccionPremio.aspx"); 
             else
-                Response.Write("Voucher inválido");
+                lblMensaje.Text = "El código ingresado no es válido";
+                lblMensaje.Visible = true;
         }
     }
 }

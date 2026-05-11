@@ -33,7 +33,8 @@ namespace PromoWeb
 
                     + "<p class='card-text'>" + articulo.Descripcion + "</p>"
 
-                    + "<a href='#' class='btn btn-primary'>Elegir</a>"
+                    + "<a href='DatosCliente.aspx?id=" + articulo.Id + "' class='btn btn-primary'>Elegir</a>"
+                    //genera links con el id del artículo para que se pueda identificar cuál fue elegido en la página siguiente(parametro por url)
 
                     + "</div>"
 

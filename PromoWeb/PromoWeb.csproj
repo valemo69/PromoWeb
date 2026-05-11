@@ -67,11 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatosCliente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="SeleccionPremio.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatosCliente.aspx.cs">
+      <DependentUpon>DatosCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosCliente.aspx.designer.cs">
+      <DependentUpon>DatosCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datos\AccesoDatos.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -81,7 +89,9 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dominio\Articulo.cs" />
+    <Compile Include="Dominio\Cliente.cs" />
     <Compile Include="Negocio\ArticuloNegocio.cs" />
+    <Compile Include="Negocio\ClienteNegocio.cs" />
     <Compile Include="Negocio\VoucherNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleccionPremio.aspx.cs">

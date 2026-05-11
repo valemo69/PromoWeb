@@ -15,6 +15,8 @@
         <asp:TextBox ID="txtVoucher" runat="server" CssClass="form-control mb-3" placeholder="Código voucher"></asp:TextBox>
 
         <asp:Button ID="btnValidar" runat="server" Text="Validar Voucher" CssClass="btn btn-primary" OnClick="btnValidar_Click" />
+        <asp:Label ID="lblMensaje" runat="server" Visible="false" CssClass="alert alert-danger d-block mt-3"></asp:Label>
+
     </div>
         </asp:Panel>
 
