@@ -19,17 +19,26 @@ namespace PromoWeb
             // Se obtiene desde SQL una lista con nombres de artículos
             List<Articulo> lista = negocio.listarArticulos();
 
-            // Recorre cada artículo de la lista
+            // Recorre cada artículo de la lista y por cada araticulo genera una card bootstrap completa con su imagen, nombre, descripción y un botón para elegirlo.
             foreach (Articulo articulo in lista)
             {
-                // Muestra nombre del artículo
-                Response.Write("<h3>" + articulo.Nombre + "</h3>");
+                Response.Write(
+                    "<div class='card m-3 p-3' style='width: 18rem; display:inline-block; vertical-align:top;'>"
 
-                // Muestra descripción del artículo
-                Response.Write("<p>" + articulo.Descripcion + "</p>");
+                    + "<img src='" + articulo.ImagenUrl + "' class='card-img-top'>"
 
-                // Línea separadora visual
-                Response.Write("<hr>");
+                    + "<div class='card-body'>"
+
+                    + "<h5 class='card-title'>" + articulo.Nombre + "</h5>"
+
+                    + "<p class='card-text'>" + articulo.Descripcion + "</p>"
+
+                    + "<a href='#' class='btn btn-primary'>Elegir</a>"
+
+                    + "</div>"
+
+                    + "</div>"
+                );
             }
         }
     } 

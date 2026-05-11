@@ -29,8 +29,12 @@ namespace PromoWeb.Negocio
             // Se indica qué conexión usar
             comando.Connection = datos.conexion;
 
-            // Consulta SQL para traer información de artículos
-            comando.CommandText = "SELECT Id, Nombre, Descripcion FROM Articulos";
+            // Consulta SQL para traer información de artículos, imagenes incluidas x ahora solo una
+            comando.CommandText =
+                    "SELECT A.Id, A.Nombre, A.Descripcion, " +
+                    "(SELECT TOP 1 ImagenUrl " +
+                    "FROM Imagenes WHERE IdArticulo = A.Id) AS ImagenUrl " +
+                    "FROM Articulos A";
 
             // Ejecuta consulta y devuelve lector de resultados
             SqlDataReader lector = comando.ExecuteReader();
@@ -45,6 +49,7 @@ namespace PromoWeb.Negocio
                 aux.Id = (int)lector["Id"];
                 aux.Nombre = lector["Nombre"].ToString();
                 aux.Descripcion = lector["Descripcion"].ToString();
+                aux.ImagenUrl = lector["ImagenUrl"].ToString();
 
                 // Se agrega objeto completo a la lista
                 lista.Add(aux);

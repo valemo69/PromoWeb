@@ -7,6 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server"><%-- segunda conexion dentro de un lugar especifico de la master--%>
     
+    <asp:Panel ID="pnlVoucher" runat="server" DefaultButton="btnValidar"><%--aca hace que aparte de el btn aceptar funcione con enter o intro del teclado--%> 
     <div class="container mt-5">
         <h1>Promo Web</h1>
         <p>Ingresá tu voucher promocional</p>
@@ -15,5 +16,6 @@
 
         <asp:Button ID="btnValidar" runat="server" Text="Validar Voucher" CssClass="btn btn-primary" OnClick="btnValidar_Click" />
     </div>
+        </asp:Panel>
 
 </asp:Content>
