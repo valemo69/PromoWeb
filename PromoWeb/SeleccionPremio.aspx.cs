@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using PromoWeb.Negocio;
+using PromoWeb.Dominio;
 
 namespace PromoWeb
 {
@@ -16,14 +17,20 @@ namespace PromoWeb
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             // Se obtiene desde SQL una lista con nombres de artículos
-            List<string> lista = negocio.listarArticulos();
+            List<Articulo> lista = negocio.listarArticulos();
 
             // Recorre cada artículo de la lista
-            foreach (string articulo in lista)
+            foreach (Articulo articulo in lista)
             {
-                // Imprime cada artículo en pantalla dentro de una etiqueta <p>
-                Response.Write("<p>" + articulo + "</p>");
+                // Muestra nombre del artículo
+                Response.Write("<h3>" + articulo.Nombre + "</h3>");
+
+                // Muestra descripción del artículo
+                Response.Write("<p>" + articulo.Descripcion + "</p>");
+
+                // Línea separadora visual
+                Response.Write("<hr>");
             }
         }
-    }
+    } 
 }

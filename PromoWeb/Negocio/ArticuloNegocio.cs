@@ -4,39 +4,50 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using PromoWeb.Datos;
+using PromoWeb.Dominio;
 
 namespace PromoWeb.Negocio
 {
+    // Clase encargada de manejar lógica relacionada a artículos
     public class ArticuloNegocio
     {
-        public List<string> listarArticulos()
+        // Método que obtiene artículos desde base de datos
+        public List<Articulo> listarArticulos()
         {
-            // Lista donde se van a guardar los nombres de artículos traídos desde SQL
-            List<string> lista = new List<string>();
+            // Lista donde se guardarán objetos Articulo
+            List<Articulo> lista = new List<Articulo>();
 
-            // Se crea objeto de acceso a datos para usar la conexión
+            // Objeto de acceso a datos para usar conexión SQL
             AccesoDatos datos = new AccesoDatos();
 
             // Se abre conexión a base de datos
             datos.conexion.Open();
 
-            // Se arma comando SQL
+            // Se crea comando SQL
             SqlCommand comando = new SqlCommand();
 
             // Se indica qué conexión usar
             comando.Connection = datos.conexion;
 
-            // Consulta SQL: traer nombres de todos los artículos
-            comando.CommandText = "SELECT Nombre FROM Articulos";
+            // Consulta SQL para traer información de artículos
+            comando.CommandText = "SELECT Id, Nombre, Descripcion FROM Articulos";
 
             // Ejecuta consulta y devuelve lector de resultados
             SqlDataReader lector = comando.ExecuteReader();
 
-            // Recorre cada fila devuelta por SQL
+            // Recorre fila por fila el resultado SQL
             while (lector.Read())
             {
-                // Agrega nombre del artículo a la lista
-                lista.Add(lector["Nombre"].ToString());
+                // Se crea nuevo objeto Articulo
+                Articulo aux = new Articulo();
+
+                // Se cargan propiedades del objeto con datos SQL
+                aux.Id = (int)lector["Id"];
+                aux.Nombre = lector["Nombre"].ToString();
+                aux.Descripcion = lector["Descripcion"].ToString();
+
+                // Se agrega objeto completo a la lista
+                lista.Add(aux);
             }
 
             // Se cierra conexión

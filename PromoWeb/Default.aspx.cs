@@ -23,7 +23,7 @@ namespace PromoWeb
             bool valido = negocio.validarVoucher(codigo);
 
             if (valido)
-                Response.Redirect("SeleccionPremio.aspx");
+                Response.Redirect("SeleccionPremio.aspx"); 
             else
                 Response.Write("Voucher inválido");
         }

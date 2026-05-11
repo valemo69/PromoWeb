@@ -80,6 +80,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Dominio\Articulo.cs" />
     <Compile Include="Negocio\ArticuloNegocio.cs" />
     <Compile Include="Negocio\VoucherNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,7 +112,6 @@
   <ItemGroup>
     <Folder Include="Content\" />
     <Folder Include="Controles\" />
-    <Folder Include="Dominio\" />
     <Folder Include="Imagenes\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
