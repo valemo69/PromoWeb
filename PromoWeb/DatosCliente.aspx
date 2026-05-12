@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="DatosCliente.aspx.cs" Inherits="PromoWeb.DatosCliente" %>
+﻿<%@ page language="C#" autoeventwireup="true" masterpagefile="~/Site.Master" codebehind="DatosCliente.aspx.cs" inherits="PromoWeb.DatosCliente" %>
 
 <%-- Esta página utiliza Site.Master como estructura general del sitio --%>
 
@@ -12,62 +12,96 @@
 
     <div class="container mt-5">
 
-    <%-- Título principal --%>
-    <h1>Datos del Cliente</h1>
+        <%-- Título principal --%>
+        <h1>Datos del Cliente</h1>
 
-    <p>Completá tus datos para finalizar el canje</p>
+        <p>Completá tus datos para finalizar el canje</p>
 
-    <%-- Campo nombre --%>
-    <div class="mb-3">
-        <label class="form-label">Nombre</label>
+        <%-- Campo nombre --%>
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
 
-        <asp:TextBox
-            ID="txtNombre"
+            <asp:TextBox
+                ID="txtNombre"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo apellido --%>
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+
+            <asp:TextBox
+                ID="txtApellido"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo email --%>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+
+            <asp:TextBox
+                ID="txtEmail"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo DNI --%>
+        <div class="mb-3">
+            <label class="form-label">DNI</label>
+
+            <asp:TextBox
+                ID="txtDni"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo dirección --%>
+        <div class="mb-3">
+            <label class="form-label">Dirección</label>
+
+            <asp:TextBox
+                ID="txtDireccion"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo ciudad --%>
+        <div class="mb-3">
+            <label class="form-label">Ciudad</label>
+
+            <asp:TextBox
+                ID="txtCiudad"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Campo código postal --%>
+        <div class="mb-3">
+            <label class="form-label">Código Postal</label>
+
+            <asp:TextBox
+                ID="txtCP"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+        </div>
+
+        <%-- Botón finalizar --%>
+        <asp:Button
+            ID="btnFinalizar"
             runat="server"
-            CssClass="form-control">
-        </asp:TextBox>
+            Text="Finalizar Canje"
+            CssClass="btn btn-success"
+            OnClick="btnFinalizar_Click"/>
+
     </div>
-
-    <%-- Campo apellido --%>
-    <div class="mb-3">
-        <label class="form-label">Apellido</label>
-
-        <asp:TextBox
-            ID="txtApellido"
-            runat="server"
-            CssClass="form-control">
-        </asp:TextBox>
-    </div>
-
-    <%-- Campo email --%>
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-
-        <asp:TextBox
-            ID="txtEmail"
-            runat="server"
-            CssClass="form-control">
-        </asp:TextBox>
-    </div>
-
-    <%-- Campo DNI --%>
-    <div class="mb-3">
-        <label class="form-label">DNI</label>
-
-        <asp:TextBox
-            ID="txtDni"
-            runat="server"
-            CssClass="form-control">
-        </asp:TextBox>
-    </div>
-
-    <%-- Botón finalizar --%>
-    <asp:Button
-        ID="btnFinalizar"
-        runat="server"
-        Text="Finalizar Canje"
-        CssClass="btn btn-success" />
-
-</div>
 
 </asp:Content>

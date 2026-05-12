@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CanjeFinalizado.aspx" />
     <Content Include="DatosCliente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="SeleccionPremio.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CanjeFinalizado.aspx.cs">
+      <DependentUpon>CanjeFinalizado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CanjeFinalizado.aspx.designer.cs">
+      <DependentUpon>CanjeFinalizado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DatosCliente.aspx.cs">
       <DependentUpon>DatosCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

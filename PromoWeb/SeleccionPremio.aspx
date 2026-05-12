@@ -8,12 +8,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%-- Todo lo visible se inserta dentro del MainContent definido en Site.Master --%>
 
-    <div class="container mt-5">
-        <%-- Título principal de la pantalla --%>
-        <h1>Seleccioná tu premio</h1>
-          <p>Elegí uno de los premios disponibles para continuar</p>
-
-      
-    </div>
+    
 
 </asp:Content>

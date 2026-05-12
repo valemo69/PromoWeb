@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace PromoWeb.Dominio
 {
     public class Cliente
@@ -18,5 +19,14 @@ namespace PromoWeb.Dominio
 
         // DNI del cliente
         public string Dni { get; set; }
+
+        // Dirección del cliente
+        public string Direccion { get; set; }
+
+        // Ciudad del cliente
+        public string Ciudad { get; set; }
+
+        // Código postal
+        public int CP { get; set; }
     }
 }
