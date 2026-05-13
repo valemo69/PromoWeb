@@ -22,6 +22,49 @@ namespace PromoWeb
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
+
+            // Valida nombre obligatorio
+            if (txtNombre.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar un nombre");
+                return;
+            }
+
+            // Valida apellido obligatorio
+            if (txtApellido.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar un apellido");
+                return;
+            }
+
+            // Valida email obligatorio
+            if (txtEmail.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar un email");
+                return;
+            }
+
+            // Valida dirección obligatoria
+            if (txtDireccion.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar una dirección");
+                return;
+            }
+
+            // Valida ciudad obligatoria
+            if (txtCiudad.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar una ciudad");
+                return;
+            }
+
+            // Valida código postal obligatorio
+            if (txtCP.Text.Trim() == "")
+            {
+                Response.Write("Debe ingresar un código postal");
+                return;
+            }
+
             // Se crea objeto cliente
             Cliente cliente = new Cliente();
 
@@ -38,8 +81,18 @@ namespace PromoWeb
 
             cliente.Ciudad = txtCiudad.Text;
 
-            // Convierte texto del textbox a número entero
-            cliente.CP = int.Parse(txtCP.Text);
+            // Variable auxiliar para código postal
+            int cp;
+
+            // Valida que el código postal sea numérico
+            if (!int.TryParse(txtCP.Text, out cp))
+            {
+                Response.Write("El código postal debe ser numérico");
+                return;
+            }
+
+            // Guarda código postal validado
+            cliente.CP = cp;
 
             // Se crea objeto negocio para guardar cliente
             ClienteNegocio negocio = new ClienteNegocio();
