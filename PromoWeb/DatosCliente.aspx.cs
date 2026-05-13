@@ -1,5 +1,4 @@
-﻿using PromoWeb.Dominio;
-using PromoWeb.Negocio;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +32,7 @@ namespace PromoWeb
 
             cliente.Email = txtEmail.Text;
 
-            cliente.Dni = txtDni.Text;
+            cliente.Dni = txtBuscarDni.Text;
 
             cliente.Direccion = txtDireccion.Text;
 
@@ -50,6 +49,60 @@ namespace PromoWeb
 
             // Mensaje visual temporal de éxito
             Response.Redirect("CanjeFinalizado.aspx");
+        }
+
+        protected void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            // Obtiene DNI ingresado
+            string dni = txtBuscarDni.Text;
+
+            // Validación simple: solo números
+            if (!long.TryParse(dni, out _))
+            {
+                Response.Write("El DNI debe contener solo números");
+                return;
+            }
+
+            // Se crea objeto negocio
+            ClienteNegocio negocio = new ClienteNegocio();
+
+            // Busca cliente en base de datos
+            Cliente cliente = negocio.buscarClientePorDni(dni);
+
+            // Muestra formulario
+            pnlFormulario.Visible = true;
+
+            // Si encontró cliente
+            if (cliente != null)
+            {
+                // Precarga formulario
+                txtNombre.Text = cliente.Nombre;
+
+                txtApellido.Text = cliente.Apellido;
+
+                txtEmail.Text = cliente.Email;
+
+                txtDireccion.Text = cliente.Direccion;
+
+                txtCiudad.Text = cliente.Ciudad;
+
+                txtCP.Text = cliente.CP.ToString();
+            }
+            else
+            {
+                // Limpia formulario para nuevo cliente
+                txtNombre.Text = "";
+
+                txtApellido.Text = "";
+
+                txtEmail.Text = "";
+
+                txtDireccion.Text = "";
+
+                txtCiudad.Text = "";
+
+                txtCP.Text = "";
+            }
         }
     }
 }

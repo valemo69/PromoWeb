@@ -8,7 +8,34 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <%-- Sección búsqueda por DNI --%>
+    <div class="mb-4">
+
+        <label class="form-label">DNI</label>
+
+        <div class="input-group">
+
+            <asp:TextBox
+                ID="txtBuscarDni"
+                runat="server"
+                CssClass="form-control">
+            </asp:TextBox>
+
+            <asp:Button
+                ID="btnBuscarDni"
+                runat="server"
+                Text="Buscar"
+                CssClass="btn btn-primary"
+                OnClick="btnBuscarDni_Click"/>
+        </div>
+    </div>
+
     <%-- Contenido principal de la pantalla de datos del cliente --%>
+
+    <asp:Panel
+    ID="pnlFormulario"
+    runat="server"
+    Visible="false">
 
     <div class="container mt-5">
 
@@ -50,16 +77,7 @@
             </asp:TextBox>
         </div>
 
-        <%-- Campo DNI --%>
-        <div class="mb-3">
-            <label class="form-label">DNI</label>
 
-            <asp:TextBox
-                ID="txtDni"
-                runat="server"
-                CssClass="form-control">
-            </asp:TextBox>
-        </div>
 
         <%-- Campo dirección --%>
         <div class="mb-3">
@@ -98,10 +116,11 @@
         <asp:Button
             ID="btnFinalizar"
             runat="server"
-            Text="Finalizar Canje"
+            Text="Participar!"
             CssClass="btn btn-success"
-            OnClick="btnFinalizar_Click"/>
+            OnClick="btnFinalizar_Click" />
 
     </div>
+        </asp:Panel>
 
 </asp:Content>
